@@ -1,0 +1,14 @@
+# general
+*__pycache__/
+*.pyc
+.vscode*
+launch.json
+
+# backend
+*.env
+*.pyc
+*.sqlite3
+secrets.json
+
+!package.json
+node_modules
