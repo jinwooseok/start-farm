@@ -2,7 +2,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import logging
 from .models import Town
 from django.db.models import Avg
-
+from django.utils import timezone
 logger = logging.getLogger(__name__)
 
 def update_town_rank():
@@ -34,7 +34,7 @@ def update_town_rank():
         town.town_culture = town_culture_avg
         town.town_facility = town_facility_avg
         town.town_citizen = town_citizen_avg
-        
+        town.update_at = timezone.now()
         town.save(update_fields=['star', 'area_welfare', 'town_welfare', 'town_culture', 'town_facility', 'town_citizen','update_at'])
     print('update town rank')
 
@@ -43,7 +43,7 @@ def start():
     scheduler.add_job(
         update_town_rank,
         'interval',
-        minutes = 3,
+        minutes = 10,
         id="crawler",
         misfire_grace_time=200,
         replace_existing=True,

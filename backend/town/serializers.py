@@ -30,7 +30,6 @@ class TownRankingSerializer(serializers.Serializer):
         area_dic = {}
         for areas in area_list:
             area_ids = Area.objects.filter(city__in=areas).values_list("id", flat=True)
-            print(area_ids)
             towns = Town.objects.filter(area_id__in=area_ids).order_by('-star')[:15]
             area_string = ','.join(area[:-1] for area in areas)  
             area_dic[area_string] = [[town.image.url,town.name,town.star,town.area_welfare,town.town_welfare,town.town_culture,town.town_facility,town.town_citizen] for town in towns]
