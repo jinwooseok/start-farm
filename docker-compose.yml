@@ -1,0 +1,84 @@
+version: '3'
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile.be
+    container_name: django-startfarm
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --timeout 300
+    links: 
+      - mysql 
+    volumes:
+      - ./backend:/app/
+    env_file:
+      - .env
+    environment:
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_HOST=mysql
+      - DATABASE_PORT=${DATABASE_PORT}
+      - SECRET_KEY=${SECRET_KEY}
+    depends_on:
+      - mysql
+    stdin_open: true
+    tty: true
+    networks:
+      - trinity-network
+  mysql:
+    container_name: mysql
+    image: mysql/mysql-server:8.0.27
+    env_file:
+      - .env
+    environment:
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
+      - MYSQL_ROOT_HOST=%
+    command: [ "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci", "--skip-character-set-client-handshake", "--lower_case_table_names=1", "--max_connections=2048", "--wait_timeout=3600","--default_authentication_plugin=mysql_native_password" ]
+    ports:
+      - "3307:3306"
+    volumes: #볼륨 지정
+      - ./backend/resources/conf.d:/etc/mysql/conf.d
+      - ./backend/resources/mysql-init.d:/docker-entrypoint-initdb.d
+    networks: #사용할 네트워크 지정
+      - trinity-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-startfarm
+    volumes:
+      - ./frontend/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./backend/media:/media
+    ports:
+      - "80:80"
+    depends_on:
+      - django
+      - react
+    networks:
+      - trinity-network
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile.fe
+    container_name: react
+    working_dir: /app
+    command: npm start
+    environment:
+      NODE_ENV: development
+      REACT_APP_SERVER_URL: api/
+    volumes:
+      - ./frontend:/app
+      - "/app/node_modules"
+    ports:
+      - "3000:3000"
+    stdin_open: true             # react-script 3.4.1 부터 필요
+    tty: true
+    depends_on:
+      - django
+    networks:
+      - trinity-network
+
+networks:
+  trinity-network:
+
+
