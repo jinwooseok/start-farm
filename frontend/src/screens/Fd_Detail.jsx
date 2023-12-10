@@ -36,7 +36,7 @@ export default function Fd_Detail() {
             <div className="inner_wrap">
                 <div className="Fd">
                     <div className="Fd_img">
-                        <img src={"http://localhost:8000"+data.image} alt="" />
+                        <img src={data.image} alt="" />
                     </div>
                     <div className="Fd_box">
                         <span>{data.area}</span>

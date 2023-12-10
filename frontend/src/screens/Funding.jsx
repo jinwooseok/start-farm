@@ -40,7 +40,7 @@ export default function Funding() {
                 {data.map((item, index) => ( 
                     <div className="funding_con">
                         <div className="funding_img">
-                            <a href={"/Fd_Detail?num="+index}><img src={"http://localhost:8000"+item.image} alt="" /></a>
+                            <a href={"/Fd_Detail?num="+index}><img src={item.image} alt="" /></a>
                         </div>
                         <span>{item.category}/{item.category_details}</span>
                         <a href={"/Fd_Detail?num="+index}>{item.description} </a>

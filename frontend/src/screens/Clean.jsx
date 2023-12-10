@@ -50,7 +50,7 @@ export default function Clean() {
                                 {rankingArray.slice(0, 5).map(([img, village, score], index) => (
                                     <li key={index}>
                                         <p>{index + 1}위</p>
-                                        <div className="rank_img"><a href="#"><img src={"http://localhost:8000" + img} alt="" /></a></div>
+                                        <div className="rank_img"><a href="#"><img src={img} alt="" /></a></div>
                                         <span><a href="#">{village}</a></span>
                                         <h3>{score !== null ? score.toFixed(1) : 'N/A'}<em>/5</em></h3>
                                     </li>

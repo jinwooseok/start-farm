@@ -56,7 +56,7 @@ export default function Clean() {
                                 {data.map(([img,village, score, area_welfare, town_welfare, town_culture, town_facility,town_citizen], index) => (
                                     <li key={index}>
                                         <p>{index + 1}위</p>
-                                        <div className="rank_img"><a href="#"><img src={"http://localhost:8000"+img} alt="" /></a></div>
+                                        <div className="rank_img"><a href="#"><img src={img} alt="" /></a></div>
                                         <span><a href="#">{village}</a></span>
                                         <h5>지역 복지:<span>{area_welfare}</span> 마을 복지:<span>{town_welfare}</span> 마을 문화:<span>{town_culture}</span> 마을 시설:<span>{town_facility}</span> 마을 주민:<span>{town_citizen}</span></h5>
                                         <h3>{score !== null ? score.toFixed(1) : 'N/A'}<em>/5</em></h3>

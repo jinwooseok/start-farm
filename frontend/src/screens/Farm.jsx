@@ -68,7 +68,7 @@ export default function Farm() {
                     <p>{title}</p>
                     <span>{con}</span>
                     <div className="Farm_img">
-                        <img src={"http://localhost:8000"+img} alt="" />
+                        <img src={img} alt="" />
                     </div>
                     <a href={"/Ask?num="+num} className="Farm_btn">
                         한달살이 신청하러 가기
