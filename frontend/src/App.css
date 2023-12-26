@@ -431,15 +431,15 @@ a.con_btn  {
 }
 
 .rank_box {
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto;
     position: relative;
     display: inline-block;
     padding: 60px;
     border-radius: 16px;
     background: #fff;
     box-shadow: 0 3px 10px 0 rgb(224 224 231 / 60%);
-    width: 470px;
+    width: calc(50% - 120px);
+    
     height: 500px;
 }
 
@@ -513,7 +513,7 @@ a.con_btn  {
 
 .rank_lists li p {
     font-size: 1.3rem;
-    width: 100px;
+    width: 70px;
 }
 
 .rank_lists li:first-child p {
@@ -1125,6 +1125,27 @@ footer .inner_wrap p {
         flex-direction: column;
     }
 
+    .rank_box {
+        width: 95%;
+        height: auto;
+    }
+
+    .rank_lists li > span {
+        width: auto;
+        font-size: 2rem !important;
+    }
+
+    .rank_box .rank_img {
+        width: 60px !important;
+        border-radius: 60px !important;
+        margin-right: 20px;
+    }
+
+    .rank_box .rank_img a img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
     .arrows {transform: rotate(90deg);}
 
     .Farm_list {
@@ -1179,7 +1200,7 @@ footer .inner_wrap p {
     .rank_lists li p {width: 50px;}
     .rank_lists li {height: 120px;}
     .rank_lists li .rank_img {
-        width: 60vw;
+        width: 53vw;
         height: 60px;
         overflow: hidden;
         border-radius: 0;
