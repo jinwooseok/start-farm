@@ -47,14 +47,14 @@ export default function Main() {
                 <a href="/Farmer">농업인 신청</a>
               </div>
               <div className="go_btn1">
-                <button>
+                <button onClick={() => numbtn(1)}>
                   <FaChevronDown size="33"></FaChevronDown>
                 </button>
               </div>
           </div>
           <div className={`menu_box ${num === 2 ? "on" : ""}`} onClick={() => numbtn(2)}>
               <div className="go_btn2">
-                <button>
+                <button onClick={() => numbtn(2)}>
                   <FaChevronDown size="33"></FaChevronDown>
                 </button>
               </div>
@@ -70,44 +70,48 @@ export default function Main() {
         </div>
         <div className="main_con1">
           <div className="con_title">농촌 한달살이</div>
-          <h3 className="con_text">귀농 희망자, 한달간 농업기술을을 배우며</h3>
+          <h3 className="con_text">귀농 희망자, 한달간 농업기술을 배우며</h3>
           <h3 className="con_text">일해보는건 어떤가요?</h3>
           <p className="con_text_sub">스타트팜에서 확인된 농업인만!</p>
           <a href="/Farm" className="con_btn">농촌 한달살이 보러가기</a>
-          <div className="visual_box">
+          <div className="visual_boxs">
             <div className="visual_imgs">
-              <div className="visual_img">
-              <FaUsers size={200}></FaUsers>
-              </div>
-              <div className="arrows">
-                <img src={'./image/Arrow.png'} alt="img" />
-                <img src={'./image/Arrow.png'} alt="img" />
-                <img src={'./image/Arrow.png'} alt="img" />
-              </div>
-              <div className="visual_img visual_title">
-                <p>스타트 팜</p>
-              </div>
-              <div className="arrows">
-                <img src={'./image/Arrow.png'} alt="img" />
-                <img src={'./image/Arrow.png'} alt="img" />
-                <img src={'./image/Arrow.png'} alt="img" />
-              </div>
-              <div className="visual_img">
-              <img src={'./image/farmer.png'}  alt="" />
+              <div className="visual_box">
+                <div className="visual_img">
 
+                  <FaUsers size={200}></FaUsers>
+                </div>
+                <div>
+                  <p>BEGINNER</p>
+                  <h3>귀농 희망자</h3>
+                </div>
               </div>
-            </div>
-            <div className="visual_text">
-              <div>
-                <p>BEGINNER</p>
-                <h3>귀농 희망자</h3>
+              <div className="arrows">
+                <img src={'./image/Arrow.png'} alt="img" />
+                <img src={'./image/Arrow.png'} alt="img" />
+                <img src={'./image/Arrow.png'} alt="img" />
               </div>
-              <div>
+              <div className="visual_box">
+                <div className="visual_img">
+                  <p className="visual_title">스타트 팜</p>
+                </div>
+                <div>
                 <h2 className="">한달살이 신청</h2>
               </div>
-              <div>
-                <p>FARMER</p>
-                <h3>농업인</h3>
+              </div>
+              <div className="arrows">
+                <img src={'./image/Arrow.png'} alt="img" />
+                <img src={'./image/Arrow.png'} alt="img" />
+                <img src={'./image/Arrow.png'} alt="img" />
+              </div>
+              <div className="visual_box">
+                <div className="visual_img">
+                <img src={'./image/farmer.png'}  alt="" />
+                </div>
+                <div>
+                  <p>FARMER</p>
+                  <h3>농업인</h3>
+                </div>
               </div>
             </div>
           </div>
@@ -118,41 +122,49 @@ export default function Main() {
           <h3 className="con_text">직거래 펀딩으로 마케팅 예산을 절감하세요.</h3>
           <p className="con_text_sub">최대 65% 절감 효과!</p>
           <a href="/Funding" className="con_btn">농산물 펀딩 보러가기</a>
-          <div className="visual_box">
+          <div className="visual_boxs">
             <div className="visual_imgs">
-              <div className="visual_img">
-              <FaUsers size={200}></FaUsers>
-              </div>
-              <div className="arrows">
-                <img src={'./image/Arrow.png'} alt="img" />
-                <img src={'./image/Arrow.png'} alt="img" />
-                <img src={'./image/Arrow.png'} alt="img" />
-              </div>
-              <div className="visual_img visual_title">
-                <p>스타트 팜</p>
-              </div>
-              <div className="arrows">
-                <img src={'./image/Arrow.png'} alt="img" />
-                <img src={'./image/Arrow.png'} alt="img" />
-                <img src={'./image/Arrow.png'} alt="img" />
-              </div>
-              <div className="visual_img">
-                <img src={'./image/farmer.png'}  alt="" />
-              </div>
-            </div>
-            <div className="visual_text">
+              <div className="visual_box">
+                <div className="visual_img">
+                  <FaUsers size={200}></FaUsers>
+                </div>
               <div>
                 <p>BUYER</p>
                 <h3>농산물 구매자</h3>
               </div>
-              <div>
-                <h2 className="">예약구매 신청</h2>
               </div>
-              <div>
+              <div className="arrows">
+                <img src={'./image/Arrow.png'} alt="img" />
+                <img src={'./image/Arrow.png'} alt="img" />
+                <img src={'./image/Arrow.png'} alt="img" />
+              </div>
+              <div className="visual_box">
+                <div className="visual_img">
+                  <p className="visual_title">스타트 팜</p>
+                </div>
+                <div>
+                <h2 className="">예약구매 신청</h2>
+
+              </div>
+              </div>
+              <div className="arrows">
+                <img src={'./image/Arrow.png'} alt="img" />
+                <img src={'./image/Arrow.png'} alt="img" />
+                <img src={'./image/Arrow.png'} alt="img" />
+              </div>
+              <div className="visual_box">
+                <div className="visual_img">
+                <img src={'./image/farmer.png'}  alt="" />
+                </div>
+                <div>
                 <p>FARMER</p>
                 <h3>농업인</h3>
               </div>
+
+              </div>
             </div>
+
+
           </div>
         </div>
         <div className="main_con3">

@@ -11,6 +11,7 @@ import Farmer from "./screens/Farmer";
 import Farm from "./screens/Farm";
 import Ask from "./screens/Ask";
 import React, { useEffect, useState } from 'react';
+import Mmenu from './screens/Mmenu';
 function App() {
   return (
     <React.StrictMode>
@@ -28,6 +29,7 @@ function App() {
             <Route path="/Farm" element={<Farm />}></Route>
           </Routes>
           <Footer />
+          <Mmenu />
         </BrowserRouter>
       </div>
     </React.StrictMode>

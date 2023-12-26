@@ -10,7 +10,7 @@ export default function Header() {
         </div>
         <div className="f_flex">
           <p>상호 : 스타트 팜</p>
-          <p>대표 : 안태윤</p>
+          <p>대표 : 이준혁</p>
           <p>주소 : (54896) 전북 전주시 덕진구 백제대로 567</p>
         </div>
       </div>
